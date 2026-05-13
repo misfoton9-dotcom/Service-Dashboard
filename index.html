@@ -11,16 +11,18 @@
   body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: #f6f7f9;
+    background: #f5f7fa;
     color: #1f2330;
     font-size: 14px;
   }
   .wrap { padding: 18px 20px 40px; max-width: 1400px; margin: 0 auto; }
   header.top {
-    display:flex; align-items:center; justify-content:space-between;
-    margin-bottom:18px; flex-wrap:wrap; gap:10px;
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 16px; flex-wrap: wrap; gap: 10px;
   }
-  header.top h1 { font-size: 20px; margin: 0; font-weight: 700; letter-spacing: -0.01em;}
+  header.top h1 {
+    margin: 0; font-size: 20px; font-weight: 700; letter-spacing: -0.01em;
+  }
   header.top .sub { color: #6b7280; font-size: 12px; margin-top: 2px; }
   .status {
     display: inline-flex; align-items: center; gap: 8px;
@@ -28,102 +30,87 @@
     padding: 6px 12px; border-radius: 999px;
     font-size: 12px; color: #374151;
   }
-  .dot { width:8px; height:8px; border-radius:50%; background:#9ca3af; }
-  .dot.live { background:#10b981; box-shadow:0 0 0 3px rgba(16,185,129,.18); }
-  .dot.err { background:#ef4444; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #9ca3af; }
+  .dot.live { background: #10b981; box-shadow: 0 0 0 3px rgba(16,185,129,.18); }
+  .dot.err  { background: #ef4444; }
 
-  .grid { display:grid; gap:14px; grid-template-columns: repeat(12, 1fr); }
+  button.btn {
+    background:#111827; color:#fff; border:0; border-radius:8px;
+    padding:7px 12px; font-size:12px; cursor:pointer;
+  }
+  button.btn.alt { background:#6b7280; }
+  button.btn:hover { filter: brightness(0.9); }
+
+  .grid { display: grid; gap: 14px; grid-template-columns: repeat(12, 1fr); }
   .card {
     background:#fff; border:1px solid #e5e7eb; border-radius:12px;
-    padding:14px 16px; box-shadow:0 1px 2px rgba(15,23,42,.04); min-height:80px;
+    padding:14px 16px; box-shadow:0 1px 2px rgba(15,23,42,.04);
   }
   .card h2 {
-    margin:0 0 10px; font-size:13px; font-weight:700;
-    text-transform:uppercase; letter-spacing:0.04em; color:#4b5563;
-    display:flex; align-items:center; gap:8px;
+    margin: 0 0 10px;
+    font-size: 13px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em; color: #4b5563;
   }
-  .card h2 .tag {
-    background:#eef2ff; color:#4338ca;
-    padding:2px 8px; border-radius:999px; font-size:10px; letter-spacing:.06em;
+  .c-4{grid-column:span 4}.c-6{grid-column:span 6}.c-8{grid-column:span 8}.c-12{grid-column:span 12}
+  @media (max-width: 980px){ .c-4,.c-6,.c-8{grid-column:span 12} }
+
+  table.t {
+    width:100%; border-collapse:collapse; font-size:12.5px;
   }
-
-  .c-3{grid-column:span 3} .c-4{grid-column:span 4} .c-5{grid-column:span 5}
-  .c-6{grid-column:span 6} .c-7{grid-column:span 7} .c-8{grid-column:span 8}
-  .c-12{grid-column:span 12}
-  @media (max-width: 960px){ .c-3,.c-4,.c-5,.c-6,.c-7,.c-8{grid-column:span 12} }
-
-  .kpis { display:grid; gap:10px; grid-template-columns: repeat(4, 1fr); }
-  .kpi {
-    background:linear-gradient(180deg,#fafbfc,#f3f4f6);
-    border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px;
-  }
-  .kpi .lbl { font-size:11px; color:#6b7280; text-transform:uppercase; letter-spacing:.05em;}
-  .kpi .v { font-size:22px; font-weight:700; margin-top:2px; color:#111827;}
-  .kpi .sub { font-size:11px; color:#6b7280; margin-top:2px;}
-  @media (max-width:600px){ .kpis{ grid-template-columns: repeat(2,1fr); } }
-
-  table.t { width:100%; border-collapse:collapse; font-size:12.5px; }
   table.t th, table.t td {
     padding:7px 9px; border-bottom:1px solid #eef0f3; text-align:right;
+    vertical-align: middle;
   }
   table.t th:first-child, table.t td:first-child { text-align:left; }
   table.t th {
     background:#f9fafb; color:#374151;
-    font-weight:600; font-size:11.5px; letter-spacing:.02em; text-transform:uppercase;
+    font-weight:600; font-size:11.5px; letter-spacing:.02em;
+    text-transform:uppercase;
   }
-  table.t tr.total td { font-weight:700; background:#fafbfc; }
-  table.t tr:hover td { background:#fcfcfd; }
+  table.t tr:hover td { background:#fafafa; }
+  table.t tr.total td { font-weight:700; background:#f3f4f6; }
 
-  .chart-wrap { position:relative; height:240px; }
-  .chart-wrap.tall { height:300px; }
+  .chart-wrap { position: relative; height: 220px; margin-top: 12px; }
 
-  .muted { color:#6b7280; } .small { font-size:11px; }
   .err {
     background:#fef2f2; color:#991b1b; padding:10px 12px;
     border:1px solid #fecaca; border-radius:8px; font-size:12.5px;
   }
-  button.refresh {
-    background:#111827; color:#fff; border:0; border-radius:8px;
-    padding:7px 12px; font-size:12px; cursor:pointer;
-  }
-  button.refresh:hover { background:#000; }
+  .muted { color:#6b7280; } .small{ font-size:11px; }
 
-  /* --- Password gate --- */
+  /* Password gate */
   #gate {
-    position: fixed; inset: 0; z-index: 9999;
-    background: linear-gradient(180deg,#eef2ff,#f6f7f9);
-    display: flex; align-items: center; justify-content: center; padding: 20px;
+    position:fixed; inset:0; z-index:9999;
+    background: linear-gradient(180deg,#eef2ff,#f5f7fa);
+    display:flex; align-items:center; justify-content:center; padding:20px;
   }
   #gate .panel {
     background:#fff; border:1px solid #e5e7eb; border-radius:14px;
-    padding: 24px 26px; max-width: 380px; width: 100%;
-    box-shadow: 0 8px 24px rgba(15,23,42,.10);
+    padding:24px 26px; max-width:380px; width:100%;
+    box-shadow:0 8px 24px rgba(15,23,42,.10);
   }
-  #gate h2 {
-    margin: 0 0 4px; font-size:18px; font-weight:700; color:#111827;
-  }
-  #gate p { margin: 0 0 16px; font-size: 12.5px; color:#6b7280; }
+  #gate h2 { margin:0 0 4px; font-size:18px; color:#111827; }
+  #gate p { margin:0 0 16px; font-size:12.5px; color:#6b7280; }
   #gate label { display:block; font-size:12px; color:#4b5563; margin-bottom:6px; }
   #gate input[type="password"] {
-    width: 100%; padding: 10px 12px; font-size: 14px;
-    border: 1px solid #d1d5db; border-radius: 8px; outline: none;
-    transition: border-color .15s, box-shadow .15s;
+    width:100%; padding:10px 12px; font-size:14px;
+    border:1px solid #d1d5db; border-radius:8px; outline:none;
   }
   #gate input[type="password"]:focus {
-    border-color:#6366f1; box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+    border-color:#6366f1; box-shadow:0 0 0 3px rgba(99,102,241,.15);
   }
   #gate button {
-    margin-top: 12px; width: 100%;
+    margin-top:12px; width:100%;
     background:#4f46e5; color:#fff; border:0; border-radius:8px;
     padding:10px 12px; font-size:13.5px; font-weight:600; cursor:pointer;
   }
   #gate button:hover { background:#4338ca; }
-  #gate .err {
-    margin-top: 10px; padding:8px 10px; border:1px solid #fecaca;
-    background:#fef2f2; color:#991b1b; border-radius:8px;
-    font-size:12px; display:none;
+  #gate .pwerr {
+    margin-top:10px; padding:8px 10px; border:1px solid #fecaca;
+    background:#fef2f2; color:#991b1b; border-radius:8px; font-size:12px;
+    display:none;
   }
-  #gate .err.show { display:block; }
+  #gate .pwerr.show { display:block; }
   body.locked { overflow:hidden; }
 </style>
 </head>
@@ -136,109 +123,50 @@
     <label for="pw">Password</label>
     <input id="pw" type="password" autocomplete="current-password" autofocus />
     <button id="pwbtn" type="button">Unlock</button>
-    <div class="err" id="pwerr">Incorrect password.</div>
+    <div class="pwerr" id="pwerr">Incorrect password.</div>
   </div>
 </div>
 
-<div class="wrap" style="display:none" id="wrap">
-
+<div class="wrap" id="wrap" style="display:none">
   <header class="top">
     <div>
       <h1>Service Dashboard – CV</h1>
-      <div class="sub">Live · pulls the published Summary CSV on every reload</div>
+      <div class="sub" id="subline">Live view · pulls the published Summary CSV on every reload</div>
     </div>
     <div style="display:flex; gap:10px; align-items:center;">
       <div class="status" id="status">
         <span class="dot" id="dot"></span>
         <span id="statusText">Loading…</span>
       </div>
-      <button class="refresh" onclick="load()">Refresh</button>
-      <button class="refresh" style="background:#6b7280" onclick="toggleDebug()">Debug</button>
+      <button class="btn" onclick="load()">Refresh</button>
     </div>
   </header>
 
-  <section class="card c-12" id="debug" style="display:none">
-    <h2>Debug – what the dashboard sees</h2>
-    <div id="debug-summary" class="small muted" style="margin-bottom:8px"></div>
-    <div style="display:grid; gap:10px; grid-template-columns: 1fr 1fr;">
-      <div>
-        <div class="small muted" style="margin-bottom:4px">Raw CSV (first 4000 chars)</div>
-        <textarea id="debug-raw" readonly style="width:100%; height:240px; font-family:ui-monospace,monospace; font-size:11px; padding:8px; border:1px solid #e5e7eb; border-radius:8px;"></textarea>
-      </div>
-      <div>
-        <div class="small muted" style="margin-bottom:4px">Detected blocks (header rows)</div>
-        <textarea id="debug-blocks" readonly style="width:100%; height:240px; font-family:ui-monospace,monospace; font-size:11px; padding:8px; border:1px solid #e5e7eb; border-radius:8px;"></textarea>
-      </div>
-    </div>
-    <div class="small muted" style="margin-top:8px">Match results:</div>
-    <pre id="debug-matches" style="background:#f9fafb; padding:8px; border-radius:6px; font-size:11px; max-height:200px; overflow:auto;"></pre>
-  </section>
-
-  <div class="grid" id="grid">
-
-    <section class="card c-12">
-      <h2>Breakdown – Today & MTD <span class="tag">CV</span></h2>
-      <div class="kpis" id="kpis-bd"></div>
-    </section>
-
-    <section class="card c-7">
-      <h2>Breakdown / Offroad – Full breakdown</h2>
-      <div id="bd-table"></div>
-    </section>
-    <section class="card c-5">
-      <h2>Response vs Restoration</h2>
-      <div class="chart-wrap"><canvas id="bdChart"></canvas></div>
-    </section>
-
-    <section class="card c-12">
-      <h2>Lost Order Tracker – Monthly</h2>
-      <div class="chart-wrap tall"><canvas id="lostChart"></canvas></div>
-      <div id="lost-table" style="margin-top:10px"></div>
-    </section>
-
-    <section class="card c-4"><h2>PSF (CV)</h2><div id="psf-cv"></div></section>
-    <section class="card c-4"><h2>PSF (EV)</h2><div id="psf-ev"></div></section>
-    <section class="card c-4"><h2>Vehicle Flow (ISF)</h2><div id="isf"></div></section>
-
-    <section class="card c-4"><h2>Warranty – Foton</h2><div id="warr-foton"></div></section>
-    <section class="card c-4"><h2>Warranty – Major</h2><div id="warr-major"></div></section>
-    <section class="card c-4"><h2>Warranty – Sokon</h2><div id="warr-sokon"></div></section>
-
-    <section class="card c-7"><h2>Insurance – Case Status</h2><div id="insurance"></div></section>
-    <section class="card c-5">
-      <h2>Insurance – Claim vs Assess</h2>
-      <div class="chart-wrap"><canvas id="insChart"></canvas></div>
-    </section>
-
-    <section class="card c-4"><h2>Perpetual Audit</h2><div id="audit"></div></section>
-    <section class="card c-4"><h2>Inbound / Outbound</h2><div id="inbound"></div></section>
-    <section class="card c-4"><h2>Dealer & Customer Sales</h2><div id="sales"></div></section>
-  </div>
-
-  <p class="muted small" style="margin-top:18px">Data source: published Google Sheet (Summary tab).</p>
+  <div id="error-area"></div>
+  <div class="grid" id="grid"></div>
+  <p class="muted small" style="margin-top:18px">Source: Google Sheet "Service Dashboard- CV" — published CSV. Google caches the CSV for ~5 minutes after edits.</p>
 </div>
 
 <script>
-// --- Config -----------------------------------------------------------------
+//------------------------------------------------------------------
+// Config
+//------------------------------------------------------------------
 const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR4D4j-DeM2jbb6ZBnQlW2ZMOhQ5T98BCSGgmjShG0-vH70FVNNayB7SLPefPcOVpWYjEoPAPl1Etqd/pub?output=csv";
 
-// SHA-256 of the password (current password: Service2026).
-// To change it: in any browser console run:
-//   crypto.subtle.digest('SHA-256', new TextEncoder().encode('NEW_PASSWORD'))
-//     .then(b => console.log(Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,'0')).join('')))
-// then paste the printed hash below.
+// SHA-256 of password "Service2026" (change instructions below)
 const PASSWORD_HASH = "d80b4895f9b404965bb35e940f8dad87c96259a6e77dc4a46c389dcfbac4630f";
 
+//------------------------------------------------------------------
+// Password gate
+//------------------------------------------------------------------
 async function sha256(text){
   const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
   return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,"0")).join("");
 }
-
 async function tryUnlock(){
   const pw  = document.getElementById("pw").value;
   const err = document.getElementById("pwerr");
-  const hash = await sha256(pw);
-  if (hash === PASSWORD_HASH){
+  if (await sha256(pw) === PASSWORD_HASH){
     document.getElementById("gate").remove();
     document.getElementById("wrap").style.display = "";
     document.body.classList.remove("locked");
@@ -249,9 +177,7 @@ async function tryUnlock(){
     document.getElementById("pw").select();
   }
 }
-
 document.addEventListener("DOMContentLoaded", () => {
-  // Allow auto-unlock for the rest of this browser session after first success
   try {
     if (sessionStorage.getItem("svc_dash_ok") === "1"){
       document.getElementById("gate").remove();
@@ -264,329 +190,277 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("pwbtn").addEventListener("click", tryUnlock);
   document.getElementById("pw").addEventListener("keydown", e => {
     if (e.key === "Enter") tryUnlock();
-    if (e.key !== "Enter") document.getElementById("pwerr").classList.remove("show");
+    else document.getElementById("pwerr").classList.remove("show");
   });
 });
 
-// --- Helpers ----------------------------------------------------------------
+//------------------------------------------------------------------
+// Helpers
+//------------------------------------------------------------------
 function setStatus(state, text){
   const dot = document.getElementById("dot");
   document.getElementById("statusText").textContent = text;
   dot.className = "dot " + (state==="ok"?"live":state==="err"?"err":"");
 }
-const norm = s => (s||"").toLowerCase().replace(/\s+/g," ").trim();
-const num = v => { const n = Number(String(v||"").replace(/[, ]/g,'')); return isNaN(n)?0:n; };
+function showError(msg){
+  document.getElementById("error-area").innerHTML =
+    `<div class="err" style="margin-bottom:14px">${msg}</div>`;
+}
+function clearError(){ document.getElementById("error-area").innerHTML = ""; }
+const escHtml = s => String(s ?? "").replace(/[&<>"']/g, c =>
+  ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+function isNumericString(s){
+  if (s === null || s === undefined) return false;
+  const t = String(s).replace(/[, %]/g,'').trim();
+  if (t === "") return false;
+  return /^-?\d+(\.\d+)?$/.test(t);
+}
+function toNum(s){
+  const t = String(s||"").replace(/[, %]/g,'').trim();
+  const n = Number(t);
+  return isNaN(n) ? 0 : n;
+}
 function fmt(v){
-  if (v===undefined||v===null||v==="") return "—";
-  const s = String(v).replace(/,/g,'').trim();
-  const n = Number(s);
-  if (!isNaN(n) && /^-?\d+(\.\d+)?$/.test(s)){
-    if (Math.abs(n) >= 1000) return n.toLocaleString();
-    return n.toString();
+  if (v === null || v === undefined || v === "") return "";
+  const s = String(v).trim();
+  if (isNumericString(s)){
+    const n = Number(s.replace(/,/g,''));
+    if (Math.abs(n) >= 1000) return n.toLocaleString(undefined, {maximumFractionDigits: 2});
+    if (!Number.isInteger(n))  return n.toFixed(2);
+    return n.toLocaleString();
   }
-  return v;
+  return s;
 }
 
 // RFC-4180 CSV parser
 function parseCSV(text){
   const rows = []; let row = []; let cell = ""; let inQ = false;
-  for (let i=0;i<text.length;i++){
+  for (let i=0; i<text.length; i++){
     const c = text[i];
     if (inQ){
-      if (c === '"'){ if (text[i+1]==='"'){ cell+='"'; i++; } else inQ=false; }
+      if (c === '"'){ if (text[i+1] === '"'){ cell += '"'; i++; } else inQ = false; }
       else cell += c;
     } else {
       if (c === '"') inQ = true;
-      else if (c === ','){ row.push(cell); cell=""; }
-      else if (c === '\n'){ row.push(cell); rows.push(row); row=[]; cell=""; }
+      else if (c === ','){ row.push(cell); cell = ""; }
+      else if (c === '\n'){ row.push(cell); rows.push(row); row = []; cell = ""; }
       else if (c === '\r'){ /* skip */ }
       else cell += c;
     }
   }
   if (cell.length || row.length){ row.push(cell); rows.push(row); }
-  // trim cells
   return rows.map(r => r.map(c => c.trim()));
 }
 
-// Trim trailing empty columns from each row, drop fully-empty leading/trailing rows
+// Trim trailing empty columns globally
 function tidy(rows){
-  // figure out max non-empty col among all rows
   let maxLen = 0;
-  rows.forEach(r => {
-    for (let i=r.length-1;i>=0;i--) if (r[i] !== ""){ if (i+1>maxLen) maxLen = i+1; break; }
-  });
+  for (const r of rows){
+    for (let i = r.length - 1; i >= 0; i--){
+      if (r[i] !== ""){ if (i + 1 > maxLen) maxLen = i + 1; break; }
+    }
+  }
   return rows.map(r => r.slice(0, maxLen));
 }
 
-// Split rows into "blocks" (groups of consecutive non-empty rows) -> each block = a logical table
+// Split into blocks separated by fully-empty rows
 function splitBlocks(rows){
-  const blocks = []; let cur = [];
-  const isEmpty = r => r.every(c => c === "");
+  const blocks = [];
+  let cur = [];
+  const empty = r => r.every(c => c === "");
   for (const r of rows){
-    if (isEmpty(r)){ if (cur.length){ blocks.push(cur); cur=[]; } }
+    if (empty(r)){ if (cur.length){ blocks.push(cur); cur = []; } }
     else cur.push(r);
   }
   if (cur.length) blocks.push(cur);
-  // for each block: first row is header, remainder are rows; also strip leading empty columns
-  return blocks.map(b => {
-    // Drop empty leading columns shared across the block
-    let leading = 0;
-    while (true){
-      if (b.every(r => (r[leading]||"") === "")){ leading++; } else break;
-      if (leading>20) break;
-    }
-    const cleaned = b.map(r => r.slice(leading));
-    return { header: cleaned[0]||[], rows: cleaned.slice(1) };
-  });
+
+  // Clean each block: drop leading columns that are empty across the whole block,
+  // pick header = first row, data = rest
+  return blocks.map(block => {
+    // Drop shared empty leading columns
+    let lead = 0;
+    while (lead < (block[0]?.length || 0) &&
+           block.every(r => (r[lead] ?? "") === "")) lead++;
+    const cleaned = block.map(r => r.slice(lead));
+    // Drop shared empty trailing columns
+    let trail = cleaned[0].length;
+    while (trail > 0 && cleaned.every(r => (r[trail-1] ?? "") === "")) trail--;
+    const trimmed = cleaned.map(r => r.slice(0, trail));
+    return { header: trimmed[0] || [], rows: trimmed.slice(1) };
+  }).filter(b => b.header.length > 0 && b.rows.length > 0);
 }
 
-// --- Block identifiers ------------------------------------------------------
-const isBreakdown = t =>
-  t.header.some(h => norm(h)==="metrics") &&
-  t.header.some(h => norm(h)==="no of vehicles") &&
-  t.rows.some(r => r.some(c => norm(c)==="total calls today"));
-
-const isLost = t =>
-  t.header.some(h => /lost order tracker/i.test(h||"")) ||
-  t.rows.some(r => /mangsir|poush|magh|falgun|chaitra|baisakh/i.test(r.join(" ")));
-
-const isWarranty = t =>
-  t.header.some(h => /mtd claim/i.test(h)) && t.header.some(h => /td claim/i.test(h));
-
-const isSokon  = t => t.header.some(h => /sokon warranty/i.test(h||""));
-
-const isAudit  = t =>
-  t.header.some(h => /perpectual audit|perpetual audit/i.test(h||"")) ||
-  t.rows.some(r => /line item/i.test(r.join(" ")));
-
-const isInsurance = t =>
-  t.header.some(h => /insurance/i.test(h||"")) ||
-  t.rows.some(r => /INTIMATED|DOC SUBMITTED|DV RECEIVED/.test(r.join(" ")));
-
-const isPSFev  = t => t.header.some(h => /psf- ev|psf-ev|psf ev/i.test(h||""));
-const isISF    = t => t.rows.some(r => /inflow vehicle/i.test(r.join(" ")));
-
-const isPSFcv  = t =>
-  t.header.some(h => norm(h)==="metrics") &&
-  t.header.some(h => norm(h)==="today") &&
-  t.rows.some(r => /psf taken/i.test(r.join(" "))) &&
-  !isPSFev(t) && !isISF(t);
-
-const isSales   = t => t.rows.some(r => /dealer sales/i.test(r.join(" ")));
-const isInbound = t =>
-  t.header.some(h => /inbound out bound|inbound\/vendor/i.test(h||"")) ||
-  t.rows.some(r => /foton/i.test(r.join(" ")));
-
-// --- Renderers --------------------------------------------------------------
-function renderBd(bd){
-  // bd header may include a leading blank col. Find the column index of "Metrics"
-  const mIdx = bd.header.findIndex(h => norm(h)==="metrics");
-  const off = mIdx >= 0 ? mIdx : 0;
-  const cell = (label, idx) => {
-    const r = bd.rows.find(r => norm(r[off]) === norm(label));
-    return r ? r[off+idx] : "—";
-  };
-  const tiles = [
-    { lbl:"Total Calls Today",    v: cell("Total Calls Today",1),           sub:"MTD: "+ cell("Total Calls Today",4) },
-    { lbl:"Response < 4 hr",      v: cell("Response Within 4 Hour",1),      sub:"MTD: "+ cell("Response Within 4 Hour",4) },
-    { lbl:"Restoration < 48 hr",  v: cell("Restoration within 48 hours",1), sub:"MTD: "+ cell("Restoration within 48 hours",4) },
-    { lbl:"Open Cases (TD)",      v: cell("Total Open Case Till Date",1),   sub:"Outside Valley: " + cell("Total Open Case Till Date",3) },
-  ];
-  document.getElementById("kpis-bd").innerHTML = tiles.map(t=>`
-    <div class="kpi">
-      <div class="lbl">${t.lbl}</div>
-      <div class="v">${fmt(t.v)}</div>
-      <div class="sub">${t.sub}</div>
-    </div>`).join("");
-
-  const head = bd.header.slice(off);
-  document.getElementById("bd-table").innerHTML = `
-    <table class="t">
-      <thead><tr>${head.map(h=>`<th>${h}</th>`).join("")}</tr></thead>
-      <tbody>${bd.rows.map(r=>`<tr>${r.slice(off).map((c,i)=>`<td>${i===0?c:fmt(c)}</td>`).join("")}</tr>`).join("")}</tbody>
-    </table>`;
-
-  const labels = ["Today", "Inside Valley", "Outside Valley", "MTD"];
-  const series = (label) => [num(cell(label,1)), num(cell(label,2)), num(cell(label,3)), num(cell(label,4))];
-  if (window._bdCh) window._bdCh.destroy();
-  window._bdCh = new Chart(document.getElementById("bdChart"), {
-    type:"bar",
-    data:{ labels, datasets:[
-      { label:"Response within 4h",     data: series("Response Within 4 Hour"),       backgroundColor:"#22c55e" },
-      { label:"Response breached",      data: series("Breached Response"),            backgroundColor:"#ef4444" },
-      { label:"Restoration < 48h",      data: series("Restoration within 48 hours"),  backgroundColor:"#06b6d4" },
-      { label:"Restoration breached",   data: series("Breached Restoration"),         backgroundColor:"#f59e0b" },
-    ]},
-    options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{position:"bottom"}},
-      scales:{ y:{ beginAtZero:true, ticks:{precision:0} } } }
-  });
-}
-
-function renderLost(lost){
-  // Drop empty leading columns inside this block (header may start with "5. Lost Order Tracker" then ""; rows may have leading "")
-  // Find the column where "Month" (or the row label) lives
-  let off = lost.header.findIndex(h => /month/i.test(h||""));
-  if (off < 0) off = lost.header.findIndex((h,i) => i>0 && h!=="");
-  if (off < 0) off = 0;
-  const head = lost.header.slice(off);
-  const rows = lost.rows.map(r => r.slice(off)).filter(r => r[0] && r[0] !== "");
-  const labels = rows.map(r => r[0]);
-  const orders = rows.map(r => num(r[1]));
-  const qty    = rows.map(r => num(r[2]));
-  const inTr   = rows.map(r => num(r[3]));
-  const pend   = rows.map(r => num(r[4]));
-
-  if (window._lostCh) window._lostCh.destroy();
-  window._lostCh = new Chart(document.getElementById("lostChart"), {
-    type:"bar",
-    data:{ labels, datasets:[
-      { label:"Orders", data:orders, backgroundColor:"#6366f1" },
-      { label:"Qty",    data:qty,    backgroundColor:"#22c55e" },
-      { label:"In Transit", data:inTr, backgroundColor:"#06b6d4" },
-      { label:"Pending", data:pend,  backgroundColor:"#ef4444" },
-    ]},
-    options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{position:"bottom"}},
-      scales:{ y:{ beginAtZero:true } } }
-  });
-  document.getElementById("lost-table").innerHTML = `
-    <table class="t">
-      <thead><tr>${head.map(h=>`<th>${h}</th>`).join("")}</tr></thead>
-      <tbody>${rows.map(r=>`<tr>${r.map((c,i)=>`<td>${i===0?c:fmt(c)}</td>`).join("")}</tr>`).join("")}</tbody>
-    </table>`;
-}
-
-function renderTable(targetId, table){
-  const el = document.getElementById(targetId);
-  if (!table || !table.header || !table.header.length){
-    el.innerHTML = `<div class="muted small">No data.</div>`; return;
+// Try to give the block a friendly title from header[0] or the first cell that looks like a heading
+function blockTitle(block, idx){
+  // If header[0] is text and other headers look like real column names, use header[0] as title
+  const h0 = block.header[0] || "";
+  const restNumeric = block.header.slice(1).every(h => h && !isNumericString(h));
+  // If first row first cell is something like "1. Inbound Out Bound", strip the numbering
+  let title = h0.replace(/^\s*\d+\.\s*/,'').trim();
+  if (!title){
+    // No header label — synthesize one from the first column entries
+    const firstCol = block.rows.map(r => r[0]).filter(Boolean).slice(0,3).join(", ");
+    title = firstCol || `Section ${idx+1}`;
   }
-  // Strip empty leading columns
-  let off = 0;
-  while (off < table.header.length && (table.header[off]==="" || table.header[off]===undefined)) off++;
-  const head = table.header.slice(off);
-  const rows = table.rows.map(r => r.slice(off));
-  el.innerHTML = `
+  return title;
+}
+
+//------------------------------------------------------------------
+// Block renderer
+//------------------------------------------------------------------
+function renderBlockTable(block){
+  // If the "header" has all-blank cells except the first (e.g. a title row),
+  // promote the second row to header.
+  let header = block.header.slice();
+  let rows = block.rows.slice();
+  const blankInHeader = header.filter(h => h === "" || h === undefined).length;
+  if (blankInHeader >= header.length - 1 && rows.length > 0){
+    header = rows[0].slice();
+    rows = rows.slice(1);
+  }
+
+  const totalRowIdx = rows.findIndex(r => /grand total|^total$/i.test(r[0] || ""));
+
+  return `
     <table class="t">
-      <thead><tr>${head.map(h=>`<th>${h}</th>`).join("")}</tr></thead>
-      <tbody>${rows.map(r=>{
-        const isTot = /grand total|total/i.test(r[0]||"");
-        return `<tr class="${isTot?"total":""}">${r.map((c,i)=>`<td>${i===0?c:fmt(c)}</td>`).join("")}</tr>`;
-      }).join("")}</tbody>
+      <thead><tr>${header.map(h => `<th>${escHtml(h || "")}</th>`).join("")}</tr></thead>
+      <tbody>
+        ${rows.map((r, i) => {
+          const total = i === totalRowIdx;
+          return `<tr class="${total?'total':''}">${r.map((c, j) =>
+            `<td>${j === 0 ? escHtml(c) : escHtml(fmt(c))}</td>`).join("")}</tr>`;
+        }).join("")}
+      </tbody>
     </table>`;
 }
 
-function renderInsuranceChart(ins){
-  if (!ins) return;
-  let off = 0;
-  while (off < ins.header.length && (ins.header[off]==="" || ins.header[off]===undefined)) off++;
-  const rows = ins.rows.map(r => r.slice(off));
-  const labels = rows.map(r => r[0]);
-  const claim  = rows.map(r => num(r[2]));
-  const assess = rows.map(r => num(r[3]));
-  if (window._insCh) window._insCh.destroy();
-  window._insCh = new Chart(document.getElementById("insChart"), {
-    type:"bar",
-    data:{ labels, datasets:[
-      { label:"Claim Amount",  data:claim,  backgroundColor:"#6366f1" },
-      { label:"Assess Amount", data:assess, backgroundColor:"#22c55e" },
-    ]},
-    options:{ indexAxis:"y", responsive:true, maintainAspectRatio:false,
-      plugins:{ legend:{ position:"bottom" } },
-      scales:{ x:{ beginAtZero:true, ticks:{ callback: v => v.toLocaleString() } } } }
+function chartFromBlock(block, canvasId){
+  // Build a simple bar chart from the block:
+  //   x-axis labels = first column values (excluding total)
+  //   one dataset per numeric column (header[1..])
+  let header = block.header.slice();
+  let rows = block.rows.slice();
+  const blankInHeader = header.filter(h => h === "" || h === undefined).length;
+  if (blankInHeader >= header.length - 1 && rows.length > 0){
+    header = rows[0].slice();
+    rows = rows.slice(1);
+  }
+  // Exclude grand-total row
+  rows = rows.filter(r => !/grand total|^total$/i.test(r[0] || ""));
+
+  if (header.length < 2 || rows.length < 1) return false;
+
+  // Which columns are numeric (>= half the cells are numbers)?
+  const colNumeric = [];
+  for (let c = 1; c < header.length; c++){
+    let n = 0, t = 0;
+    for (const r of rows){ if ((r[c] ?? "") !== ""){ t++; if (isNumericString(r[c])) n++; } }
+    if (t >= 1 && n / t >= 0.6) colNumeric.push(c);
+  }
+  if (!colNumeric.length) return false;
+
+  // Don't chart if all rows have the same label and there's only one numeric column
+  const labels = rows.map(r => r[0] || "");
+  if (labels.every(l => !l)) return false;
+
+  const palette = ["#6366f1","#22c55e","#06b6d4","#f59e0b","#ef4444","#a855f7","#14b8a6","#eab308"];
+  const datasets = colNumeric.map((c, idx) => ({
+    label: header[c] || `Col ${c}`,
+    data: rows.map(r => toNum(r[c])),
+    backgroundColor: palette[idx % palette.length],
+  }));
+
+  const ctx = document.getElementById(canvasId);
+  if (!ctx) return false;
+  if (window._charts && window._charts[canvasId]) window._charts[canvasId].destroy();
+  window._charts = window._charts || {};
+  window._charts[canvasId] = new Chart(ctx, {
+    type: "bar",
+    data: { labels, datasets },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: "bottom", labels: { boxWidth: 10, font: { size: 11 } } } },
+      scales: {
+        x: { ticks: { font: { size: 10 } } },
+        y: { beginAtZero: true, ticks: { font: { size: 10 } } },
+      },
+    },
   });
+  return true;
 }
 
-// --- Debug ------------------------------------------------------------------
-window._lastDebug = { raw: "", blocks: [], matches: {} };
-function toggleDebug(){
-  const d = document.getElementById("debug");
-  d.style.display = d.style.display === "none" ? "" : "none";
-  if (d.style.display !== "none") renderDebug();
-}
-function renderDebug(){
-  const dbg = window._lastDebug;
-  document.getElementById("debug-summary").textContent =
-    `CSV length: ${dbg.raw.length} chars · ${dbg.blocks.length} block(s) detected`;
-  document.getElementById("debug-raw").value = (dbg.raw || "").slice(0, 4000);
-  document.getElementById("debug-blocks").value = dbg.blocks.map((b,i) =>
-    `[#${i}] header: ${JSON.stringify(b.header)}\n     rows: ${b.rows.length}`
-  ).join("\n\n");
-  document.getElementById("debug-matches").textContent = JSON.stringify(dbg.matches, null, 2);
+// Decide how many columns this card should span based on block width
+function blockSpan(block){
+  const cols = block.header.length;
+  const rows = block.rows.length;
+  // Wide blocks (5+ cols) or long blocks (>8 rows) get the whole row
+  if (cols >= 5 || rows >= 8) return 12;
+  // Mid blocks
+  if (cols >= 4) return 8;
+  if (cols >= 3) return 6;
+  return 4;
 }
 
-// --- Main -------------------------------------------------------------------
+//------------------------------------------------------------------
+// Main
+//------------------------------------------------------------------
 async function load(){
+  clearError();
   setStatus("loading", "Fetching live data…");
+  document.getElementById("grid").innerHTML = "";
   try {
-    // cache-bust so reloads always get fresh
-    const r = await fetch(CSV_URL + "&_=" + Date.now());
+    const url = CSV_URL + (CSV_URL.includes("?") ? "&" : "?") + "_=" + Date.now();
+    const r = await fetch(url, { cache: "no-store" });
     if (!r.ok) throw new Error("HTTP " + r.status);
     const text = await r.text();
+    if (!text || text.trim().length < 5){
+      throw new Error("Empty response from Google Sheets — is the sheet still published?");
+    }
+
     const rows = tidy(parseCSV(text));
     const blocks = splitBlocks(rows);
-    window._lastDebug.raw = text;
-    window._lastDebug.blocks = blocks;
-    window._lastDebug.matches = {
-      breakdown: blocks.findIndex(isBreakdown),
-      lost:      blocks.findIndex(isLost),
-      warranty:  blocks.map((b,i)=>isWarranty(b)?i:-1).filter(i=>i>=0),
-      audit:     blocks.findIndex(isAudit),
-      insurance: blocks.findIndex(isInsurance),
-      psfcv:     blocks.findIndex(isPSFcv),
-      psfev:     blocks.findIndex(isPSFev),
-      isf:       blocks.findIndex(isISF),
-      sales:     blocks.findIndex(isSales),
-      inbound:   blocks.findIndex(isInbound),
-    };
-    if (document.getElementById("debug").style.display !== "none") renderDebug();
 
-    // Breakdown: prefer the block that actually has data (Total Calls Today != 0 anywhere)
-    const bdBlocks = blocks.filter(isBreakdown);
-    const bd = bdBlocks.length>1
-      ? (bdBlocks.find(t => t.rows.some(r => r.some(c => num(c) > 0))) || bdBlocks[0])
-      : bdBlocks[0];
-    if (bd) renderBd(bd);
+    if (!blocks.length){
+      showError("CSV loaded but no data blocks detected. Make sure the Summary sheet is the published tab.");
+      setStatus("err", "No data blocks");
+      return;
+    }
 
-    const lost = blocks.find(isLost);
-    if (lost) renderLost(lost);
+    const grid = document.getElementById("grid");
+    blocks.forEach((block, idx) => {
+      const span = blockSpan(block);
+      const id = "ch-" + idx;
+      const title = blockTitle(block, idx);
+      const canChart = block.rows.length >= 2 &&
+                       block.header.length >= 2 &&
+                       block.header.some((h, i) => i > 0 && h);
+      const html = `
+        <section class="card c-${span}">
+          <h2>${escHtml(title)}</h2>
+          ${renderBlockTable(block)}
+          ${canChart ? `<div class="chart-wrap"><canvas id="${id}"></canvas></div>` : ""}
+        </section>`;
+      grid.insertAdjacentHTML("beforeend", html);
+      if (canChart) chartFromBlock(block, id);
+    });
 
-    // Warranty grouping (Foton smallest, Major largest, Sokon labeled)
-    const warr = blocks.filter(isWarranty);
-    let sokon = warr.find(isSokon);
-    const others = warr.filter(t => !isSokon(t));
-    const grandOf = t => {
-      const r = t.rows.find(r => /grand total/i.test(r[0]||""));
-      return r ? num(r[2]) : 0;
-    };
-    const sorted = [...others].sort((a,b) => grandOf(a) - grandOf(b));
-    const foton = sorted[0];
-    const major = sorted[sorted.length - 1];
-    renderTable("warr-foton", foton);
-    renderTable("warr-major", major);
-    renderTable("warr-sokon", sokon);
-
-    const ins = blocks.find(isInsurance);
-    renderTable("insurance", ins);
-    renderInsuranceChart(ins);
-
-    renderTable("audit",   blocks.find(isAudit));
-    renderTable("sales",   blocks.find(isSales));
-    renderTable("inbound", blocks.find(isInbound));
-
-    renderTable("psf-cv",  blocks.find(isPSFcv));
-    renderTable("psf-ev",  blocks.find(isPSFev));
-    renderTable("isf",     blocks.find(isISF));
-
-    setStatus("ok", "Live · refreshed " + new Date().toLocaleString());
+    document.getElementById("subline").textContent =
+      `Live view · ${blocks.length} section(s) · last refreshed ${new Date().toLocaleString()}`;
+    setStatus("ok", "Live");
   } catch (err){
     console.error(err);
-    setStatus("err", "Failed to load – " + (err && err.message ? err.message : err));
-    document.getElementById("grid").insertAdjacentHTML("afterbegin",
-      `<div class="card c-12 err">Unable to load live data: ${String(err && err.message || err)}</div>`);
+    setStatus("err", "Failed to load");
+    showError(
+      `Could not load the CSV. <b>${escHtml(err && err.message || err)}</b><br><br>
+       Common fixes:
+       <ul>
+         <li>In Google Sheets: <i>File → Share → Publish to web</i> → pick the <b>Summary</b> tab → click <b>Publish</b>.</li>
+         <li>Republish if you've edited the sheet recently — Google caches the CSV for ~5 minutes.</li>
+         <li>If you opened this file with a <code>file://</code> URL the browser may block <code>fetch()</code>. Open via Cloudflare Pages or a local server.</li>
+       </ul>`
+    );
   }
 }
-
-// load() is invoked from the password gate after a successful unlock.
 </script>
 </body>
 </html>
